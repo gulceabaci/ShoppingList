@@ -36,7 +36,7 @@ function Form() {
     setTitle(''); //kaydedildikten sonra sıfırlanır.
     setQuantity(1);
   }
-  
+
   return (
     <form className="form" onSubmit={handleFormSubmit}>
       <input 
@@ -56,9 +56,7 @@ function Form() {
 function List() {
   return (
     <div className="list">
-      <ul>
-        {items.map((i, index) => (<Item item={i} key={index} />))}
-      </ul>
+      <ul>{items.map((i, index) => (<Item item={i} key={index} />))}</ul>
     </div>
   );
 }
