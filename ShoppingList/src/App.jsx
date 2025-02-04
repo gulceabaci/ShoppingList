@@ -36,6 +36,7 @@ function Form() {
     setTitle(''); //kaydedildikten sonra sıfırlanır.
     setQuantity(1);
   }
+  
   return (
     <form className="form" onSubmit={handleFormSubmit}>
       <input 
@@ -45,10 +46,7 @@ function Form() {
        onChange={(e) => setTitle(e.target.value)}
       />  
       <select value={quantity} onChange={(e) => setQuantity(Number(e.target.value))}>
-        {
-          Array.from({length:10}, (v,i) => i +1)
-          .map(num => <option value={num} key={num}>{num}</option>)
-        }
+        {Array.from({length:10}, (v,i) => i +1).map(num => <option value={num} key={num}>{num}</option>)}
       </select>
       <button type="submit">Ekle</button>
     </form>
