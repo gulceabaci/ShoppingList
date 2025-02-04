@@ -68,12 +68,12 @@ function Item({item}) {
       <button>X</button>
     </li>
   );
-
 }
 
 function Summary() {
   return(
-    <footer className="summary">Alışveriş sepetinizde 10 ürün bulunmaktadır.</footer>
+    <footer className="summary">Alışveriş sepetinizde 5 ürün bulunmaktadır.</footer>
   );
 }
+
 export default App;
