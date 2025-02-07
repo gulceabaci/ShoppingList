@@ -81,6 +81,7 @@ function List({items, onDeleteItem}) {
 function Item({item, onDeleteItem}) {
   return(
     <li>
+      <input type="checkbox" />
       <span style={item.completed ? {textDecoration:"line-through"} : {} }>{item.quantity} {item.title}</span>
       <button onClick={() => onDeleteItem(item.id)}>X</button>
     </li>
