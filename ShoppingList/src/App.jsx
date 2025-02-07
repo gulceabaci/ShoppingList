@@ -23,10 +23,13 @@ function App() {
     setItems(items => items.map(item => item.id == id ? {...item, completed: !item.completed} : item));
   }
   
+  function handleClearList() {
+    setItems([]);
+  }
   return (
    <div className="app">
       <Header />
-      <Form onAddItem={handleAddItem}/>
+      <Form onAddItem={handleAddItem} onClearList={handleClearList}/>
       <List items={items} onDeleteItem={handleDeleteItem} onUpdateItem={handleUpdateItem}/>
       <Summary items={items} />
    </div>
@@ -39,19 +42,19 @@ function Header() {
   );
 }
 
-function Form({onAddItem}) {
+function Form({onAddItem, onClearList}) {
   const [title, setTitle] = useState("");
   const [quantity, setQuantity] = useState(1);
   
 
   function handleFormSubmit(e) {
     e.preventDefault();
-    const item = {id: Date.now(), title, quantity, completed: false}
-    console.log(item);
-
-    onAddItem(item);
-    setTitle(''); //kaydedildikten sonra sıfırlanır.
-    setQuantity(1);
+    if(title) { //submit olayını tetiklemez.
+      const item = {id: Date.now(), title, quantity, completed: false}
+      onAddItem(item);
+      setTitle(''); //kaydedildikten sonra sıfırlanır.
+      setQuantity(1);
+    }
   }
 
   return (
@@ -66,7 +69,7 @@ function Form({onAddItem}) {
         {Array.from({length:10}, (v,i) => i +1).map(num => <option value={num} key={num}>{num}</option>)}
       </select>
       <button type="submit">➕ Ekle</button>
-      <button type="button">🗑️ Temizle</button>
+      <button type="button" onClick={onClearList}>🗑️ Temizle</button>
     </form>
   );
 }
