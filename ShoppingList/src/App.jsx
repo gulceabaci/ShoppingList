@@ -65,7 +65,8 @@ function Form({onAddItem}) {
       <select value={quantity} onChange={(e) => setQuantity(Number(e.target.value))}>
         {Array.from({length:10}, (v,i) => i +1).map(num => <option value={num} key={num}>{num}</option>)}
       </select>
-      <button type="submit">Ekle</button>
+      <button type="submit">➕ Ekle</button>
+      <button type="button">🗑️ Temizle</button>
     </form>
   );
 }
