@@ -24,7 +24,10 @@ function App() {
   }
   
   function handleClearList() {
-    setItems([]);
+    const onay = window.confirm("Listedeki tüm ürünleri silmek istediğinizden emin misiniz?");
+    if(onay){
+      setItems([]);
+    }
   }
   return (
    <div className="app">
