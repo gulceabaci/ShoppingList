@@ -48,11 +48,9 @@ input {
   padding: 1rem 3rem;
   cursor: pointer;
 }
-
 input[type="checkbox"] {
   margin-right: 5px;
 }
-
 .list {
   background-color: #B7B7B7;
   color: #fff;
