@@ -1,12 +1,5 @@
 import { useState } from "react";
-
-const data = [
-  {id:1, title: "Yumurta", quantity: 10, completed: true},
-  {id:2, title: "Ekmek", quantity: 2, completed: true},
-  {id:3, title: "Süt", quantity: 1, completed: false},
-  {id:4, title: "Et", quantity: 1, completed: true},
-  {id:5, title: "Zeytin", quantity: 1, completed: false},
-];
+import { data } from "./data";
 
 function App() {
   const [items, setItems] = useState(data);
@@ -36,12 +29,6 @@ function App() {
       <List items={items} onDeleteItem={handleDeleteItem} onUpdateItem={handleUpdateItem}/>
       <Summary items={items} />
    </div>
-  );
-}
-
-function Header() {
-  return (
-    <h1>🛒 Shopping List</h1>
   );
 }
 
