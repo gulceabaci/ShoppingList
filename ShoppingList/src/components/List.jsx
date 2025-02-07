@@ -1,3 +1,5 @@
+import Item from "./Item";
+
 export default function List({items, onDeleteItem, onUpdateItem}) {
     return <>
       {
