@@ -28,7 +28,7 @@ function App() {
       <Header />
       <Form onAddItem={handleAddItem}/>
       <List items={items} onDeleteItem={handleDeleteItem} onUpdateItem={handleUpdateItem}/>
-      <Summary />
+      <Summary items={items} />
    </div>
   );
 }
@@ -96,9 +96,11 @@ function Item({item, onDeleteItem, onUpdateItem}) {
   );
 }
 
-function Summary() {
+function Summary({items}) {
+  const itemsCount = items.length;
+
   return(
-    <footer className="summary">Alışveriş sepetinizde 5 ürün bulunmaktadır.</footer>
+    <footer className="summary">Alışveriş sepetinizde {itemsCount} ürün bulunmaktadır.</footer>
   );
 }
 
