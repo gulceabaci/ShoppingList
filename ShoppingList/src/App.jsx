@@ -77,7 +77,7 @@ function List({items, onDeleteItem, onUpdateItem}) {
        <div className="list">
           <ul>{items.map((i, index) => (<Item item={i} key={index} onDeleteItem={onDeleteItem} onUpdateItem={onUpdateItem} />))}</ul>
         </div>
-      ) : <p>No items</p>
+      ) : <div className="list"> Sepette ürün yok</div>
     }
    </>;
 }
@@ -97,10 +97,22 @@ function Item({item, onDeleteItem, onUpdateItem}) {
 }
 
 function Summary({items}) {
+  if(items.length === 0) {
+    return(
+      <footer className="summary">Alışeriş Listenizi hazırlamaya başlayabilirsiniz.</footer>
+    );
+  }
   const itemsCount = items.length;
+  const completedItemsCount = items.filter(item => item.completed). length;
 
   return(
-    <footer className="summary">Alışveriş sepetinizde {itemsCount} ürün bulunmaktadır.</footer>
+    <footer className="summary">
+      {
+        itemsCount === completedItemsCount ? 
+        <p>Alışverişi tamamladınız.</p> : 
+        <p>Alışveriş sepetinizde {itemsCount} üründen {completedItemsCount} tanesi alındı. </p>
+      }
+      </footer>
   );
 }
 
